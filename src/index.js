@@ -11,7 +11,7 @@ const renderApp = () => {
     </AppContainer>,
     document.getElementById('app'),
   );
-}
+};
 
 renderApp();
 

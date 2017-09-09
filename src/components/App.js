@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 const App = () => (
   <div>
-    <h4>Inventory</h4>
+    <h1>Inventory</h1>
+    <input type="checkbox" /> Highlighter
+    <br />
+    <input type="checkbox" /> Time analyzer
   </div>
 );
 
