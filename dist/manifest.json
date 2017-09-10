@@ -2,12 +2,19 @@
 	"manifest_version": 2,
   "name": "inventory",
   "description": "",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["background.js"]
+    }
+  ],
   "version": "1.0",
   "browser_action": {
 		"default_icon": "grid.png",
 		"default_popup": "index.html"
   },
   "permissions": [
-		"activeTab"
+    "activeTab",
+    "background"
 	]
 }
