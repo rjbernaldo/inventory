@@ -30,11 +30,23 @@ class App extends Component {
   render() {
     const { deadline, hh, mm, ss } = this.state;
 
+    const hours = hh !== 0
+      ? `${hh}h`
+      : '';
+
+    const minutes = mm !== 0
+      ? `${mm}m`
+      : '';
+
+    const seconds = mm !== 0
+      ? `${ss}s`
+      : '';
+
     return (
       <div>
-        <h2>{ formatTime(new Date()) }</h2>
-        <h4>{ formatTime(deadline) }</h4>
-        <h4>{ hh }:{ mm }:{ ss }</h4>
+        <strong>{ hours } { minutes } { seconds }</strong>
+        <span> before </span>
+        <strong>{ formatTime(deadline) }</strong>
       </div>
     );
   }
@@ -55,12 +67,12 @@ function generateDeadline(hour, minute, second) {
 function formatTime(time) {
   let hh = time.getHours() % 12;
   let mm = time.getMinutes();
-  const ap = time.getHours() >= 12 ? 'PM' : 'AM';
+  const ap = time.getHours() >= 12 ? 'pm' : 'am';
 
   hh = hh === 0 ? '00' : hh;
   mm = mm === 0 ? '00' : mm;
 
-  return `${hh}:${mm}${ap}`;
+  return `${hh}:${mm} ${ap}`;
 }
 
 function getDifference(deadline) {
