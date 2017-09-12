@@ -32,7 +32,7 @@ class App extends Component {
 
     const hours = hh !== 0 ? `${hh}h` : '';
     const minutes = hh !== 0 || mm !== 0 ? `${mm}m` : '';
-    const seconds = mm !== 0 ? `${ss}s` : '';
+    const seconds = `${ss}s`;
 
     return (
       <div>
