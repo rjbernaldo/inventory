@@ -8,11 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const deadline = new Date();
-    deadline.setHours(HOUR);
-    deadline.setMinutes(MINUTE);
-    deadline.setSeconds(SECOND);
-
+    const deadline = generateDeadline(HOUR, MINUTE, SECOND);
     const { hh, mm, ss } = getDifference(deadline);
 
     this.state = {
@@ -45,6 +41,16 @@ class App extends Component {
 }
 
 export default App;
+
+function generateDeadline(hour, minute, second) {
+  const deadline = new Date();
+
+  deadline.setHours(hour);
+  deadline.setMinutes(minute);
+  deadline.setSeconds(second);
+
+  return deadline;
+}
 
 function formatTime(time) {
   let hh = time.getHours() % 12;
