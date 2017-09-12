@@ -31,7 +31,7 @@ class App extends Component {
     const { deadline, hh, mm, ss } = this.state;
 
     const hours = hh !== 0 ? `${hh}h` : '';
-    const minutes = mm !== 0 ? `${mm}m` : '';
+    const minutes = hh !== 0 || mm !== 0 ? `${mm}m` : '';
     const seconds = mm !== 0 ? `${ss}s` : '';
 
     return (
