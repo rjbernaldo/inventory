@@ -35,7 +35,7 @@ class App extends Component {
     const seconds = `${ss}s`;
 
     return (
-      <div>
+      <div style={{ width: '150px' }}>
         <strong>{ hours } { minutes } { seconds }</strong>
         <span> before </span>
         <strong>{ formatTime(deadline) }</strong>
