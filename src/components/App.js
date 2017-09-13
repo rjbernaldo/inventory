@@ -34,11 +34,21 @@ class App extends Component {
     const minutes = hh !== 0 || mm !== 0 ? `${mm}m` : '';
     const seconds = `${ss}s`;
 
+    const display = hh > 0
+      ? (
+        <div>
+          <strong>{ hours } { minutes } { seconds }</strong>
+          <span> before </span>
+          <strong>{ formatTime(deadline) }</strong>
+        </div>
+      )
+      : (
+        <span>Its already { formatTime(deadline) }</span>
+      );
+
     return (
       <div style={{ width: '150px' }}>
-        <strong>{ hours } { minutes } { seconds }</strong>
-        <span> before </span>
-        <strong>{ formatTime(deadline) }</strong>
+        { display }
       </div>
     );
   }
