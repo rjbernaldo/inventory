@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import GApp from 'grommet/components/App';
 import GBox from 'grommet/components/Box';
+import GSplit from 'grommet/components/Split';
+import GHeading from 'grommet/components/Heading';
 
 const HOUR = 21;
 const MINUTE = 0;
@@ -39,17 +41,33 @@ class App extends Component {
 
     const display = hh > 0 || mm > 0
       ? (
-        <GBox>
-          <strong>{ hours }:{ minutes }:{ seconds }</strong>
-          <span> to be budgeted </span>
-        </GBox>
+        <GSplit>
+          <GBox pad="medium">
+            <GBox align="start" style={{ paddingBottom: '15px' }}>
+              <GHeading tag="h4">
+                Time Capsule
+              </GHeading>
+            </GBox>
+            <GBox align="start">Side Project</GBox>
+            <GBox align="start">Freelance</GBox>
+          </GBox>
+          <GBox pad="medium">
+            <GBox align="end" style={{ paddingBottom: '15px' }}>
+              <GHeading tag="h4">
+                <strong>{ hours }:{ minutes }:{ seconds }</strong>
+              </GHeading>
+            </GBox>
+            <GBox align="end">02:00:00</GBox>
+            <GBox align="end">01:00:00</GBox>
+          </GBox>
+        </GSplit>
       )
       : (
         <span>Its already { formatTime(deadline) }</span>
       );
 
     return (
-      <GApp style={{ width: '150px' }}>
+      <GApp appCentered={true}>
         { display }
       </GApp>
     );
