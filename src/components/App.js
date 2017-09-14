@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import GApp from 'grommet/components/App';
+import GBox from 'grommet/components/Box';
+
 const HOUR = 21;
 const MINUTE = 0;
 const SECOND = 0;
@@ -30,26 +33,25 @@ class App extends Component {
   render() {
     const { deadline, hh, mm, ss } = this.state;
 
-    const hours = hh !== 0 ? `${hh}h` : '';
-    const minutes = hh !== 0 || mm !== 0 ? `${mm}m` : '';
-    const seconds = `${ss}s`;
+    const hours = (`0${hh}`).slice(-2);
+    const minutes = (`0${mm}`).slice(-2);
+    const seconds = (`0${ss}`).slice(-2);
 
-    const display = hh > 0
+    const display = hh > 0 || mm > 0
       ? (
-        <div>
-          <strong>{ hours } { minutes } { seconds }</strong>
-          <span> before </span>
-          <strong>{ formatTime(deadline) }</strong>
-        </div>
+        <GBox>
+          <strong>{ hours }:{ minutes }:{ seconds }</strong>
+          <span> to be budgeted </span>
+        </GBox>
       )
       : (
         <span>Its already { formatTime(deadline) }</span>
       );
 
     return (
-      <div style={{ width: '150px' }}>
+      <GApp style={{ width: '150px' }}>
         { display }
-      </div>
+      </GApp>
     );
   }
 }
